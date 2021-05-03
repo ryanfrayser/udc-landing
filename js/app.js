@@ -18,13 +18,17 @@
  * Define Global Variables
  * 
 */
+const sections = document.querySelectorAll("section")
 
+const navbar = document.getElementById(navbar_lists)
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+
+
 
 
 
