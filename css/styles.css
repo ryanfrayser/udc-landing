@@ -64,6 +64,9 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+    background: none;
+}
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -71,6 +74,8 @@ section {
 }
 
 .navbar__menu li {
+    color:rgb(0, 0, 0);
+    padding: 0 1em 0 1em;
     display: inline-block;
 }
 
@@ -90,9 +95,10 @@ section {
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: rgb(145, 145, 145);
     position: fixed;
     top: 0;
+    padding: 1em;
     width: 100%;
     z-index: 5;
 }
