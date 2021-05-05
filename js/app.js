@@ -14,23 +14,21 @@
 */
 
 
-/**
- * Define Global Variables
- *
-*/
+// Define Global Variables
+
 const navSections = document.querySelectorAll("section");
 const navbar = document.querySelector('#navbar__list');
 
 
-/**
- * End Global Variables
- * Start Helper Functions
- *
-*/
+
+// Gets section tags  and adds them to the navbar. 
+
 function getContent(){
     for (let i=0; i<navSections.length; i++){
+        
         let navItem = document.createElement('li');
         let sectionTitle = navSections[i].getAttribute("data-title");
+
             navItem.innerText = sectionTitle;
             navbar.appendChild(navItem);
  }}
