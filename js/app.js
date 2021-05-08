@@ -19,31 +19,36 @@
 const navSections = document.querySelectorAll("section");
 const navbar = document.querySelector('#navbar__list');
 
+// Get section tags and add them to the navbar.
 
+for (let i=0; i<navSections.length; i++){
+        const navItem = document.createElement('li');
+        const navLink = document.createElement('a');
+        const sectionTitle = navSections[i].getAttribute('data-title');
+        const sectionArea = "#" + navSections[i].getAttribute('id');
 
-// Gets section tags  and adds them to the navbar. 
+            navLink.textContent = sectionTitle;
+            navLink.classList = "menu__link";
+            navLink.href = sectionArea;
 
-function getContent(){
-    for (let i=0; i<navSections.length; i++){
-        
-        let navItem = document.createElement('li');
-        let sectionTitle = navSections[i].getAttribute("data-title");
-
-            navItem.innerText = sectionTitle;
             navbar.appendChild(navItem);
- }}
-getContent();
+            navItem.appendChild(navLink);
+    }
 
 
+//Scroll To Top Button
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/
+var scrollToTopBtn = document.getElementById("scrollToTop");
+var rootElement = document.documentElement;
 
-// build the nav
+function scrollToTop () {
+    rootElement.scrollTo({
+        top:0,
+        behavior: 'smooth'
+    })
+  }
 
+  scrollToTopBtn.addEventListener('click', scrollToTop);
 
 // Add class 'active' to section when near top of viewport
 
@@ -51,16 +56,7 @@ getContent();
 // Scroll to anchor ID using scrollTO event
 
 
-/**
- * End Main Functions
- * Begin Events
- *
-*/
+
+// Begin Events
 
 // Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
