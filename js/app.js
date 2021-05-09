@@ -60,8 +60,6 @@ for( const link of links) {
 
     }
 
-
-
     //Scroll To Top Button
 
 var scrollToTopBtn = document.getElementById("scrollToTop");
@@ -94,7 +92,6 @@ const observer = new IntersectionObserver( function(entries,observer){
             entry.target.classList.remove('activated')
         }
     });
-
 }, options);
 
 //Add observer to each section
