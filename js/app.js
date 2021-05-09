@@ -19,6 +19,7 @@
 const navSections = document.querySelectorAll("section");
 const navbar = document.querySelector('#navbar__list');
 
+
 // Get section tags and add them to the navbar.
 
 for (let i=0; i<navSections.length; i++){
@@ -32,14 +33,19 @@ for (let i=0; i<navSections.length; i++){
 
             navbar.appendChild(navItem);
             navItem.appendChild(navLink);
+
+
+            if (navSections[i].classList.contains('activated')) {
+                navLink.classList.add('underline');
+            }
+            else {
+                navLink.classList.remove('underline')
+            }
     }
 
 
 
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor section
+// Scroll smoothly to nav sections
 
 const links = document.querySelectorAll('a')
 for( const link of links) {
@@ -49,8 +55,11 @@ for( const link of links) {
         const section = document.getElementById(
             e.target.getAttribute("href").replace("#", ""));
           section.scrollIntoView({ behavior: "smooth" });
-        }
-    )}
+        });
+
+
+    }
+
 
 
     //Scroll To Top Button
@@ -58,10 +67,35 @@ for( const link of links) {
 var scrollToTopBtn = document.getElementById("scrollToTop");
 var rootElement = document.documentElement;
 
-function scrollToTop () {
+function scrollToTop() {
     rootElement.scrollTo({
-        top:0,
+        top: 0,
         behavior: 'smooth'
-    })
-  }
+    });
+}
   scrollToTopBtn.addEventListener('click', scrollToTop);
+
+
+
+// Add class 'activated' to section when near top of viewport using Intersection Observer API
+
+let options = {
+    root: null,
+    rootMargin: '10%',
+    threshold: .75,
+};
+
+const observer = new IntersectionObserver( function(entries,observer){
+    entries.forEach(entry => {
+        if (entry.isIntersecting === true) {
+            entry.target.classList.add('activated')
+        }
+        else{
+            entry.target.classList.remove('activated')
+        }
+    });
+
+}, options);
+
+//Add observer to each section
+navSections.forEach(section => {observer.observe(section)});
