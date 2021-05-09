@@ -25,18 +25,35 @@ for (let i=0; i<navSections.length; i++){
         const navItem = document.createElement('li');
         const navLink = document.createElement('a');
         const sectionTitle = navSections[i].getAttribute('data-title');
-        const sectionArea = "#" + navSections[i].getAttribute('id');
 
             navLink.textContent = sectionTitle;
             navLink.classList = "menu__link";
-            navLink.href = sectionArea;
+            navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
 
             navbar.appendChild(navItem);
             navItem.appendChild(navLink);
     }
 
 
-//Scroll To Top Button
+
+// Add class 'active' to section when near top of viewport
+
+
+// Scroll to anchor section
+
+const links = document.querySelectorAll('a')
+for( const link of links) {
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+
+        const section = document.getElementById(
+            e.target.getAttribute("href").replace("#", ""));
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+    )}
+
+
+    //Scroll To Top Button
 
 var scrollToTopBtn = document.getElementById("scrollToTop");
 var rootElement = document.documentElement;
@@ -47,16 +64,4 @@ function scrollToTop () {
         behavior: 'smooth'
     })
   }
-
   scrollToTopBtn.addEventListener('click', scrollToTop);
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-
-// Begin Events
-
-// Build menu
