@@ -29,7 +29,6 @@ for (let i=0; i<navSections.length; i++){
 
             navLink.textContent = sectionTitle;
             navLink.classList = ("menu__link");
-            // navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
             navLink.id = (`nav-${navSections[i].getAttribute("id")}`);
 
         //Add Smooth scroll behavior to navbar links
