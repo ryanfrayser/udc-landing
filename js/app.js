@@ -29,28 +29,17 @@ for (let i=0; i<navSections.length; i++){
 
             navLink.textContent = sectionTitle;
             navLink.classList = ("menu__link");
-            navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
+            // navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
             navLink.id = (`nav-${navSections[i].getAttribute("id")}`);
+
+        //Add Smooth scroll behavior to navbar links
+            navLink.addEventListener("click", (e)=>{
+                e.preventDefault();
+                navSections[i].scrollIntoView({behavior: "smooth"})
+            });
 
             navbar.appendChild(navItem);
             navItem.appendChild(navLink);
-    }
-
-
-
-// Scroll smoothly to nav sections
-
-const links = document.querySelectorAll('a')
-for( const link of links) {
-    link.addEventListener('click', function(e){
-        e.preventDefault();
-
-        const section = document.getElementById(
-            e.target.getAttribute("href").replace("#", ""));
-          section.scrollIntoView({ behavior: "smooth" });
-        });
-
-
     }
 
 //Scroll To Top Button
@@ -80,7 +69,6 @@ const observer = new IntersectionObserver( function(entries,observer){
     entries.forEach(entry => {
         if (entry.isIntersecting === true) {
             entry.target.classList.add('activated');
-            console.log(entry.target.id);
             document.querySelector(`#nav-${entry.target.id}`).classList.add('activeNav');
         }
         else{
