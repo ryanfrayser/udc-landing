@@ -55,8 +55,8 @@ for( const link of links) {
 
 //Scroll To Top Button
 
-var scrollToTopBtn = document.getElementById("scrollToTop");
-var rootElement = document.documentElement;
+let scrollToTopBtn = document.getElementById("scrollToTop");
+let rootElement = document.documentElement;
 
 function scrollToTop() {
     rootElement.scrollTo({
