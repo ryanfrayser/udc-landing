@@ -32,7 +32,6 @@ for (let i=0; i<navSections.length; i++){
             navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
             navLink.id = (`nav-${navSections[i].getAttribute("id")}`);
 
-
             navbar.appendChild(navItem);
             navItem.appendChild(navLink);
     }
@@ -54,7 +53,7 @@ for( const link of links) {
 
     }
 
-    //Scroll To Top Button
+//Scroll To Top Button
 
 var scrollToTopBtn = document.getElementById("scrollToTop");
 var rootElement = document.documentElement;
@@ -68,16 +67,14 @@ function scrollToTop() {
   scrollToTopBtn.addEventListener('click', scrollToTop);
 
 
-
 // Add class 'activated' to section when near top of viewport using Intersection Observer API
+// Also, adds "activeNav" to active navbar section.
 
 let options = {
     root: null,
     rootMargin: '10%',
     threshold: .75,
 };
-
-
 
 const observer = new IntersectionObserver( function(entries,observer){
     entries.forEach(entry => {
@@ -93,5 +90,6 @@ const observer = new IntersectionObserver( function(entries,observer){
     });
 }, options);
 
-//Add observer to each section
+//Add observer to each section tag
+
 navSections.forEach(section => {observer.observe(section)});
