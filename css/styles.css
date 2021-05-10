@@ -87,7 +87,7 @@ section {
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
+    padding: .5em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -147,5 +147,11 @@ section:nth-of-type(even) .landing__container {
 section.activated {
     background: rgb(34, 34, 34);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+
+}
+.menu__link.activeNav {
+border: 1.5px solid rgba(110, 108, 108, 0.5);
+
+
 
 }

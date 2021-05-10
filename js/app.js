@@ -28,19 +28,13 @@ for (let i=0; i<navSections.length; i++){
         const sectionTitle = navSections[i].getAttribute('data-title');
 
             navLink.textContent = sectionTitle;
-            navLink.classList = "menu__link";
+            navLink.classList = ("menu__link");
             navLink.setAttribute("href", `#${navSections[i].getAttribute("id")}`);
+            navLink.id = (`nav-${navSections[i].getAttribute("id")}`);
+
 
             navbar.appendChild(navItem);
             navItem.appendChild(navLink);
-
-
-            if (navSections[i].classList.contains('activated')) {
-                navLink.classList.add('underline');
-            }
-            else {
-                navLink.classList.remove('underline')
-            }
     }
 
 
@@ -83,13 +77,18 @@ let options = {
     threshold: .75,
 };
 
+
+
 const observer = new IntersectionObserver( function(entries,observer){
     entries.forEach(entry => {
         if (entry.isIntersecting === true) {
-            entry.target.classList.add('activated')
+            entry.target.classList.add('activated');
+            console.log(entry.target.id);
+            document.querySelector(`#nav-${entry.target.id}`).classList.add('activeNav');
         }
         else{
             entry.target.classList.remove('activated')
+            document.querySelector(`#nav-${entry.target.id}`).classList.remove('activeNav');
         }
     });
 }, options);
